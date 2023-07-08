@@ -8,11 +8,11 @@
 <body>
     <h1>アンケート</h1>
     <form id="myForm">
-        <label for="user_id">User ID:</label>
+        <label for="ユーザー">User ID:</label>
         <input type="text" id="user_id" name="user_id" required><br><br>
-        <label for="message">Message:</label>
+        <label for="メッセージ">Message:</label>
         <input type="text" id="message" name="message" required><br><br>
-        <input type="submit" value="Submit">
+        <input type="送信" value="Submit">
     </form>
 
     <script>
@@ -40,7 +40,7 @@
                 document.getElementById('user_id').value = userId;
 
                 // 既存データを取得し、フォームに表示
-                const response = await fetch('https://script.google.com/macros/s/AKfycbwz2X4Og7itfWyFeOD1gT2ODpqdw1VZ0GP5d84Vh3MnibwKT9-tae5HI-vhdyrr0GtKXQ/exec?user_id=' + userId);  // ご自身のGAS WebアプリのURLに置き換えてください
+                const response = await fetch('hhttps://script.google.com/macros/s/AKfycbzA4BUmfjRsrD1aD0sVFG12Du4ajjiiF2_IVJFvA0XwZ0qvopnM8GFJWKAm3fV22Slm2A/exec?user_id=' + userId);  // ご自身のGAS WebアプリのURLに置き換えてください
                 const data = await response.json();
 
                 if (data) {
@@ -61,12 +61,13 @@
             liff.sendMessages([
                 {
                     type: 'text',
-                    text: 'User ID: ' + userId + '\nMessage: ' + message
+                    text: 'Message: ' + message
                 }
             ]).then(() => {
                 // 送信成功時にデータをリセットする
                 document.getElementById('myForm').reset();
                 updateSpreadsheet(userId, message);
+                liff.closeWindow();
             }).catch((error) => {
                 console.error('Failed to send message', error);
             });
@@ -75,12 +76,11 @@
         // スプレッドシートのデータを更新
         function updateSpreadsheet(userId, message) {
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'https://script.google.com/macros/s/AKfycbwz2X4Og7itfWyFeOD1gT2ODpqdw1VZ0GP5d84Vh3MnibwKT9-tae5HI-vhdyrr0GtKXQ/exec', true);  // ご自身のGAS WebアプリのURLに置き換えてください
+            xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzA4BUmfjRsrD1aD0sVFG12Du4ajjiiF2_IVJFvA0XwZ0qvopnM8GFJWKAm3fV22Slm2A/exec', true);  // ご自身のGAS WebアプリのURLに置き換えてください
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
         // アンケートフォームのデータを送信
-         //   var formData = 'user_id=' + encodeURIComponent(userId) + '&message=' + encodeURIComponent(message);
-              var formData = encodeURIComponent(userId) + "," +encodeURIComponent(message);
+            var formData = 'user_id=' + encodeURIComponent(userId) + '&message=' + encodeURIComponent(message);
             xhr.send(formData);
         }
     </script>
