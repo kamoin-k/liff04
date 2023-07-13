@@ -80,7 +80,11 @@
             xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
 
         // アンケートフォームのデータを送信
-            var formData = 'user_id=' + userId + 'message=' + message;
+            let formData = JSON.stringify({
+                             user_id: userId,
+                             message: message
+            });
+          //  var formData = 'user_id=' + userId + 'message=' + message;
             xhr.send(formData);
         }
     </script>
