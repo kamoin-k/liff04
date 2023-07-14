@@ -9,9 +9,9 @@
     <h1>アンケート</h1>
     <form id="myForm">
         <label for="user_id">ユーザー:</label>
-        <input type="text" id="user_id" name="user_id" required><br><br>
+        <input type="text" size="10" id="user_id" name="user_id" required><br><br>
         <label for="message">メッセージ:</label>
-        <input type="text" id="message" name="message" required><br><br>
+        <input type="text" size="20" id="message" name="message" required><br><br>
         <input type="submit" value="送信">
     </form>
 
@@ -61,10 +61,11 @@
             liff.sendMessages([
                 {
                     type: 'text',
-                    text: 'Message: ' + message
+                    text: 'メッセージは' + message
                 }
             ]).then(() => {
                 // 送信成功時にデータをリセットする
+                console.log('完了!');
                 document.getElementById('myForm').reset();
                 updateSpreadsheet(userId, message);
                 liff.closeWindow();
