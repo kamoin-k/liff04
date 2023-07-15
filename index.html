@@ -82,6 +82,7 @@
             // フォームデータを送信
             document.write("完了です。" + message + "です");
             var formData = 'user_id=' + encodeURIComponent(userId) + '&message=' + encodeURIComponent(message);
+             document.write("フォームデータは、" + formData + "です");
             xhr.send(formData);
         }
     </script>
