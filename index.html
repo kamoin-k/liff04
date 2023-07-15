@@ -40,7 +40,7 @@
                 document.getElementById('user_id').value = userId;
 
                 // 既存データを取得し、フォームに表示
-                const response = await fetch('https://script.google.com/macros/s/AKfycbwndNr1EIXLPAQSX3nMM7E8RICUxhWbw331d8d69aJh1PIeKYEVZN2wHM5ZYpfBRdpNlg/exec?user_id=' + userId);  // ご自身のGAS WebアプリのURLに置き換えてください
+                const response = await fetch('https://script.google.com/macros/s/AKfycbwHUyVbyfLwce_7nTnlDAEK-B2jOpcL8p1TCAB0OiNgTZ07dQMJaIvQm_yrPqVUVMVRSQ/exec?user_id=' + userId);  // ご自身のGAS WebアプリのURLに置き換えてください
                 const data = await response.json();
 
                 if (data) {
@@ -76,7 +76,7 @@
         // スプレッドシートのデータを更新
         function updateSpreadsheet(userId, message) {
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'https://script.google.com/macros/s/AKfycbwndNr1EIXLPAQSX3nMM7E8RICUxhWbw331d8d69aJh1PIeKYEVZN2wHM5ZYpfBRdpNlg/exec', true);  // ご自身のGAS WebアプリのURLに置き換えてください
+            xhr.open('POST', 'https://script.google.com/macros/s/AKfycbwHUyVbyfLwce_7nTnlDAEK-B2jOpcL8p1TCAB0OiNgTZ07dQMJaIvQm_yrPqVUVMVRSQ/exec', true);  // ご自身のGAS WebアプリのURLに置き換えてください
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
             // フォームデータを送信
