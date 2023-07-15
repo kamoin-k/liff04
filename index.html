@@ -75,7 +75,7 @@
 
         // スプレッドシートのデータを更新
         function updateSpreadsheet(userId, message) {
-            document.write("完了");
+            document.write("完了" + message);
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'https://script.google.com/macros/s/AKfycbz1aq6atjiMbaEOiCmLFeFJgFTsKsLpn-UPz97Nga_gsmR4GXZu1YzCuikbMt_CrmhN4Q/exec', true);  // ご自身のGAS WebアプリのURLに置き換えてください
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
