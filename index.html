@@ -65,7 +65,7 @@
                 }
             ]).then(() => {
                 // 送信成功時にデータをリセットする
-                <p>完了!</p>;
+                document.write("完了" + message);
                 document.getElementById('myForm').reset();
                 updateSpreadsheet(userId, message);
                 liff.closeWindow();
